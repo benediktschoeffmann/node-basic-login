@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/benmedani/node-basic-login/issues"
   },
-  "homepage": "https://github.com/benmedani/node-basic-login#readme"
+  "homepage": "https://github.com/benmedani/node-basic-login#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
 }
