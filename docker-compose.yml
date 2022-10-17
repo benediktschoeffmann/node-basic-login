@@ -27,4 +27,4 @@ services:
     ports:
       - 8081:80
 volumes:
-  - db-data:
+  db-data:
