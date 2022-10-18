@@ -1,5 +1,8 @@
 FROM node:16
 
+# We have to install nodemon globally before moving into the working directory
+RUN npm install -g nodemon
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -15,4 +18,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-CMD [ "node", "server.js" ]
+EXPOSE 8080
+CMD ./start.sh
