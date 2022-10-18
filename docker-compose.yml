@@ -1,18 +1,22 @@
 version: '3'
 services:
-  app:
+  node-app:
     build: .
     volumes:
       - .:/usr/src/app
-    container_name: docker-node-tut
-    restart: always
+    container_name: app
+    networks:
+      - backend
     ports:
-      - 4026:8080
+      - 8008:8080
     command: bash -c /usr/src/app/start.sh
     env_file: .env
-  db:
+    links:
+      - mysql-database
+      - phpmyadmin
+  mysql-database:
     image: 'mysql:5.7'
-    container_name: db
+    container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: my_secret_password
       MYSQL_DATABASE: app_db
@@ -30,7 +34,7 @@ services:
     networks:
       - backend
     links:
-      - db
+      - mysql-database
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
