@@ -39,7 +39,7 @@ services:
       PMA_HOST: db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
-    restart: always
+    restart: on-failure
     ports:
       - '8081:80'
 volumes:
